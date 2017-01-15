@@ -32,6 +32,11 @@ Dette bygger C++-kode, kompilerer koden og kjører programmet. Dersom dette ikke
 
 Jeg har ikke laget en detaljert beskrivelse av språket, men katalogen `eksempler` inneholder eksempler som bruker de fleste aspektene ved språket. I filen `eksempler/test.spp` er det også lagt inn kommentarer som skal gjøre det litt enklere å forstå hva som foregår.
 
+# Fargelegging av syntaks
+
+- `spp.lang` kan brukes til å definere fargelegging av kode i redigeringsprogrammet **gedit**. Se dokumentasjon for gedit for informasjon om hvordan man kan bruke den filen.
+- `spp.vim` kan brukes til å definere fargelegging av kode i redigeringsprogrammet **vim**. Se dokumentasjon for vin for informasjon om hvordan man kan bruke den filen.
+
 # Avhengigheter
 
 - `sipp.hpp` er skrevet i **C++14**. Den er testet kompilert med g++5. (Se siste linje i runSippFile.sh). Systemet skal kun avhenge av standardbiblioteket i C++14.
