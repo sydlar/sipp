@@ -39,6 +39,6 @@ Jeg har ikke laget en detaljert beskrivelse av språket, men katalogen `eksemple
 
 # Avhengigheter
 
-- `sipp.hpp` er skrevet i **C++14**. Den er testet kompilert med g++5. (Se siste linje i runSippFile.sh). Systemet skal kun avhenge av standardbiblioteket i C++14.
+- `sipp.hpp` er skrevet i **C++14**. Den er testet kompilert med g++5. (Se siste linje i `runSippFile.sh`). Systemet skal kun avhenge av standardbiblioteket i C++14.
 
 - sipp-programmene kjøres ved hjelp av et **bash**-script som benytter **sed** og **awk**. Instalassjonsskriptet er også et **bash**-skript.
