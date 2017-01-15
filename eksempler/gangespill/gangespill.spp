@@ -1,0 +1,31 @@
+//
+// Eksemmpel på spill laget sammen med barn
+//
+Tall riktig = 0
+Tall antall = 10
+Klokke klokke;
+
+gjenta (x,tallMellom(0,antall)){
+	si(klokke)//asdf
+	Tall a,b
+	a=tilfeldig(21)-1
+	b=tilfeldig(21)-1
+	si(a,"x",b,"=")
+	
+	Tall sv
+	les(sv)
+
+	hvis(sv==a*b){
+		riktig=riktig+1
+		si("RIKTIG!:-D")
+	} ellers {
+		si("Feil:-/")
+	}
+}
+
+
+si("Du fikk",riktig,"av",antall,"riktige.", riktig/antall*100 ,"%")
+hvis(riktig==antall)si("Du er best;-P")
+ellers si("Du må øve mer!!")
+
+slutt

@@ -1,0 +1,117 @@
+/* TODO:
+- Gjøre det på tid
+- Velge vanskelighetsgrad
+    - ulik hiscore for ulik vanskelighetsgrad
+- 
+*/
+
+Metode finnes(Tall x, Liste<Tall> A){
+	gjenta(a,A){
+		hvis(x==a){
+			svar ja
+			}
+		}
+	svar nei
+}
+
+
+Metode riktige(Liste<Tall> gjetning,Liste<Tall> hemmelig){
+	Tall teller = 0
+	gjenta(a,gjetning){
+		hvis(finnes(a,hemmelig)) {
+			teller=teller+1
+		}
+	}
+	svar teller
+}
+
+
+
+
+Metode perfektePlasser(Liste<Tall> A, Liste<Tall> B){
+	Tall plass = 0
+	Tall perfektPoeng = 0
+	repeter {
+		hvis(plass == B.lengde() eller plass == B.lengde()) bryt
+		hvis(A[plass]==B[plass]) perfektPoeng = perfektPoeng + 1
+		plass = plass + 1
+	}
+	svar perfektPoeng
+}
+
+Metode kontrollerHiscore(Tabell<Tekst,Tall>& hiscore,Tekst navn,Tall ant){	
+	hvis(hiscore[navn] == 0 eller hiscore[navn] > ant){
+		hiscore[navn] = ant
+		svar ja
+	} ellers {
+		svar nei
+	}
+}
+
+Metode siHiscore(Tabell<Tekst,Tall> hiscore){
+	Liste<Par<Tekst,Tall>> tmp = liste(hiscore)
+	Liste<Par<Tall,Tekst>> hiscoreList = vend(tmp)
+	sorter(hiscoreList)
+	si()
+	si("REKORDER:")
+	gjenta(par,hiscoreList){
+		si(par)
+	}
+	lagre(hiscore)
+}
+
+Metode lesNavn(){	
+	si("Hva heter du?")
+	Tekst navn
+	les(navn)
+	svar navn
+}
+
+Metode velgVanskelighetsgrad(){
+	si("Velg vanskelighetsgrad")
+	Tall N
+	les(N)
+	svar N
+}
+
+
+
+Metode spill(){
+	Tekst navn = lesNavn()
+	Tall N = velgVanskelighetsgrad()
+	Liste<Tall> alternativer = tallMellom(1,2*N,1)//{1,2,3,4,5,6,7,8}
+	si("Alternativer: ",alternativer)
+	
+	repeter {
+		si("\n==========================================\n")
+		Liste<Tall> hemmelig = trekkUt(alternativer,N)
+		Tall antallForsok = 0
+	
+		repeter{
+			si("Gjett",N,"tall:")
+			Liste<Tall> gjetning = lesInnTall(N)
+			Tall p = perfektePlasser(gjetning,hemmelig)
+			Tall r = riktige(gjetning,hemmelig)
+			si(r,"av tallene finnes i koden.",p,"av disse er på riktig plass.")
+			antallForsok=antallForsok+1
+			hvis (p == N){
+				si("\nDu klarte det, og du brukte",antallForsok,"forsøk.\n")
+				bryt
+			}	
+		}
+		Tabell<Tekst,Tall> hiscore;
+		hvis (N == 4){
+			hent(hiscore)
+			hvis(kontrollerHiscore(hiscore,navn,antallForsok)) si("NY PERSONLIG REKORD")
+			siHiscore(hiscore)
+			lagre(hiscore)
+		}
+		si("Vil du spille på nytt? ([j]/n)")
+		Tekst sv
+		les(sv)
+		hvis(sv=="n") bryt
+	}
+	si("\n\n==============================\n Takk for spillet,",navn+"!\n==============================\n")
+}
+
+spill()

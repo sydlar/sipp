@@ -1,0 +1,15 @@
+// Tøyseprogram
+// Laget sammen med barn
+Tabell<Tekst,Tekst> adjektiver
+hent(adjektiver)
+
+Liste<Tekst> adjListe
+hent(adjListe)
+Tall antallAdjektiver = adjListe.lengde()
+
+gjenta(i,tallMellom(0,1)) {
+	Tekst navn
+	si("Hva heter du?")
+	les(navn)
+	si("Du er",adjektiver[navn],"og",adjListe.trekkTilfeldig()+".")
+}

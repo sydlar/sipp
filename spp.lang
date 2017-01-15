@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="spp" _name="SPP" version="2.0" _section="Source">
+    <metadata>
+        <property name="mimetypes">text/x-spp</property>
+      <property name="globs">*.spp</property>
+    </metadata>
+
+     <styles>
+        <style id="keyword" _name="Keyword" map-to="def:statement"/>
+        <style id="type" _name="Data Type" map-to="def:type"/>
+        <style id="string" _name="String" map-to="def:constant"/>
+        <style id="number" _name="Number" map-to="def:constant"/>
+        <style id="comment" _name="Comment" map-to="def:comment"/>
+    </styles>
+
+    <definitions>
+        <context id="spp">
+            <include>
+                <context id="float" style-ref="number">
+                    <match extended="true">
+                        (?&lt;![\w\.])
+                        ((\.[0-9]+ | [0-9]+\.[0-9]*) ([Ee][+-]?[0-9]*)? |
+                        ([0-9]+[Ee][+-]?[0-9]*))
+                        [fFlL]?
+                        (?![\w\.])
+                    </match>
+                </context>
+                 <context id="decimal" style-ref="number">
+                   <match extended="true">
+                       (?&lt;![\w\.])
+                       (0|[1-9][0-9]*)[uUlL]*
+                       (?![\w\.])
+                     </match>
+                 </context>
+
+
+
+                <context id="string" style-ref="string">
+                    <start>"</start>
+                    <end>"</end>
+                </context>
+
+                <context id="line-comment" style-ref="comment">
+                    <start>\/\/</start>
+                    <end>$</end>
+                </context>
+
+                <context id="multiline-comment" style-ref="comment">
+                    <start>\/\*</start>
+                    <end>\*\/</end>
+                </context>
+
+                <context id="keywords" style-ref="keyword">
+                    <keyword>si</keyword>
+                    <keyword>les</keyword>
+                    <keyword>gjenta</keyword>
+                    <keyword>hvis</keyword>
+                    <keyword>ja</keyword>
+                    <keyword>nei</keyword>
+                    <keyword>og</keyword>
+                    <keyword>eller</keyword>
+                    <keyword>ikke</keyword>
+                    <keyword>ellers</keyword>
+                    <keyword>metode</keyword>
+                    <keyword>slutt</keyword>
+                    <keyword>svar</keyword>
+                    <keyword>repeter</keyword>
+                    <keyword>bryt</keyword>
+                    <keyword>lagre</keyword>
+                    <keyword>hent</keyword>
+                    
+                    <keyword>kurve</keyword>
+                    <keyword>punkter</keyword>
+
+                    <keyword>liste</keyword>
+                    <keyword>tabell</keyword>
+                    <keyword>splitt</keyword>
+                    <keyword>vend</keyword>
+                    <keyword>sorter</keyword>
+                    <keyword>baklengs</keyword>
+
+
+                    <keyword>lagBlokk</keyword>
+                    <keyword>leggTil</keyword>
+                    <keyword>hode</keyword>
+                    <keyword>hale</keyword>
+
+                    <keyword>tallMellom</keyword>
+                    <keyword>lesInnTall</keyword>
+                    <keyword>trekkUt</keyword>
+                    <keyword>utvalg</keyword>
+
+
+
+
+
+                </context>
+
+                <context id="types" style-ref="type">
+                    <keyword>Tall</keyword>
+                    <keyword>Tekst</keyword>
+                    <keyword>Liste</keyword>
+                    <keyword>TallListe</keyword>
+                    <keyword>OrdListe</keyword>
+                    <keyword>Tabell</keyword>
+                    <keyword>Klokke</keyword>
+                    
+                    <keyword>Par</keyword>
+                    <keyword>ParListe</keyword>
+                    <keyword>Trio</keyword>
+                    <keyword>TrioListe</keyword>
+                    
+                    <keyword>Magisk</keyword>
+                    <keyword>Metode</keyword>
+                </context>
+            </include>
+        </context>
+    </definitions>
+</language>

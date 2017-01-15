@@ -1,0 +1,115 @@
+
+// Lese verdier fra input
+si("Hva heter du?")
+Tekst navn
+les(navn)
+si(navn,", vil du vennligst skrive to tall? ")
+Tall a
+Tall b
+les(a)
+les(b)
+// Skrive ut
+si(a," + ",b," = ",a+b)
+si("\n====================================\n")
+
+
+// Definisjon av lister
+Liste<Tall> hemmelig = {3,4,2,1}
+Liste<Tall> gjetning = {1,4,4,1}
+
+// Definisjon av metoder
+Metode finnes(Tall x, Liste<Tall> A){
+	gjenta(a,A){ // Iterasjon: Variabelen a gjennomløper alle verdiene i A.
+		hvis(x==a){ // "If-setning"
+			svar ja // Returnerer verdi fra metoden
+		}
+	}
+	svar nei // Returnerer verdi fra metoden
+}
+
+si(finnes(2,hemmelig)) // Skriv til konsoll
+
+
+// Eksempel på mer kompleks
+// metode. Kan brukes som en komponent
+// i spillet "master-mind"
+Metode perfektePlasser(Liste<Tall> A, Liste<Tall> B){
+	Tall plass = 0
+	Tall perfektPoeng = 0
+	repeter {
+		hvis(plass == A.lengde() eller plass == B.lengde()){
+			bryt
+		}
+		hvis(A[plass]==B[plass]){
+			perfektPoeng = perfektPoeng + 1	
+		}
+		si(plass,A[plass],B[plass],perfektPoeng)
+		plass = plass + 1
+	}
+	svar perfektPoeng
+}
+
+si(perfektePlasser(gjetning,hemmelig))
+
+si(hemmelig)
+
+
+// Bruk av tidtaker
+Klokke klokke
+si(klokke)
+
+
+// Eksempel på lagring av data
+Tabell<Tekst,Tall> tbl;
+// Forutsetter at filen "tbl.tabell" eksisterer
+// Hvis ikke ender vi opp med en tomm tabell
+hent(tbl)
+si(tbl)
+
+
+
+// Lager liste av nøkkel-verdi-par fra tabellen
+Magisk lst = liste(tbl)
+
+ParListe(Tall,Tekst) lstII = vend(tbl)
+
+// Sortering etter ulike kriterier
+si(lst)
+si(lstII)
+sorter(lstII) // gir sortering etter alder
+si(lstII)
+
+ParListe(Tekst,Tall) lstIII = vend(lstII)
+si(lstIII)
+sorter(lstIII); // Gir sortering etter navn
+si(lstIII)
+
+
+//
+// Eksempler på bearbeiding av sammensatte datastrukturer
+// 
+Trio(Tall,Tekst,Tall) trio = lagBlokk(Tall(2),Tekst("asdf"),Tall(3));
+si(trio)
+
+Par<Tekst,Par<Tall,Tall>> par("asdf",Par<Tall,Tall>(1,2))
+si(par)
+
+Par<Tekst,Tekst> parII("asf","abf")
+Par<Tekst,Tekst> parIII("asf","bsf")
+si(parII)
+si(parIII)
+hvis(parII < parIII) si("mindre")
+hvis(parII > parIII) si("større")
+
+auto blk = lagBlokk(Tekst("asdf"),Tall(10),Tall(34))
+
+si(blk.hode)
+si(blk.hale)
+si(blk.hale.hale)
+
+slutt // Kode som kommer etter dette punktet blir ikke eksekvert
+
+Metode fu(Tall x){
+	svar x*x -2*x
+}
+
